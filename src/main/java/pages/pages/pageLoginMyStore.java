@@ -68,7 +68,8 @@ public class pageLoginMyStore {
         driver.findElement(objectsMyStore.TXT_NOMBRE).sendKeys(nombre);
         driver.findElement(objectsMyStore.TXT_APELLIDO).sendKeys(apellido);
         driver.findElement(objectsMyStore.TXT_CLAVE).sendKeys(clave);
-
+//Select objDia = new Select(driver.findElement(objectsMyStore.LST_DIA));
+//        objDia.selectByValue(dia);
     }
 
     @And("lleno la fecha de nacimiento {string} {string} {string}")
@@ -81,12 +82,15 @@ public class pageLoginMyStore {
 
         Select objAnio = new Select(driver.findElement(objectsMyStore.LST_ANIO));
         objAnio.selectByValue(anio);
+
+        driver.findElement(objectsMyStore.CHB_NEWS).click();
     }
 
-    @And("ingreso los datos de la dirección {string} {string} {string} {string} {string}")
-    public void ingresoLosDatosDeLaDirección(String cia, String direccion, String ciudad, String estado, String codPost) {
+    @And("ingreso los datos de la dirección {string} {string} {string} {string} {string} {string}")
+    public void ingresoLosDatosDeLaDirección(String cia, String direccion1, String direccion2, String ciudad, String estado, String codPost) {
         driver.findElement(objectsMyStore.TXT_CIA).sendKeys(cia);
-        driver.findElement(objectsMyStore.TXT_DIRECCION1).sendKeys(direccion);
+        driver.findElement(objectsMyStore.TXT_DIRECCION1).sendKeys(direccion1);
+        driver.findElement(objectsMyStore.TXT_DIRECCION2).sendKeys(direccion2);
         driver.findElement(objectsMyStore.TXT_CIUDAD).sendKeys(ciudad);
         Select objEst = new Select(driver.findElement(objectsMyStore.LST_ESTADO));
         objEst.selectByVisibleText(estado);
@@ -95,8 +99,18 @@ public class pageLoginMyStore {
 
     }
 
+
     @And("ingreso mi {string} {string}")
     public void ingresoMi(String celular, String referencia) {
+        driver.findElement(objectsMyStore.TXT_CELULAR).sendKeys(celular);
+        driver.findElement(objectsMyStore.TXT_REFERENCIA).clear();
+        driver.findElement(objectsMyStore.TXT_REFERENCIA).sendKeys(referencia);
+    }
+
+    @And("ingreso mi {string} {string} {string} {string}")
+    public void ingresoMi(String infoadicional, String tefcasa, String celular, String referencia) {
+        driver.findElement(objectsMyStore.TXT_INFADIC).sendKeys(infoadicional);
+        driver.findElement(objectsMyStore.TXT_TEF_HOUSE).sendKeys(tefcasa);
         driver.findElement(objectsMyStore.TXT_CELULAR).sendKeys(celular);
         driver.findElement(objectsMyStore.TXT_REFERENCIA).clear();
         driver.findElement(objectsMyStore.TXT_REFERENCIA).sendKeys(referencia);
@@ -114,6 +128,7 @@ public class pageLoginMyStore {
         System.out.println(validator);
 
         driver.findElement(objectsMyStore.BTN_LOGOUT).click();
-        driver.close();
+        //driver.close();
     }
+
 }

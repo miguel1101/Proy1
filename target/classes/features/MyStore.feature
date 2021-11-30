@@ -19,10 +19,10 @@ Feature: Ejemplo Web My Store
     When    registro del correo "<email>"
     And     lleno el formulario con mis datos personales "<titulo>" "<nombres>" "<apellidos>" "<clave>"
     And     lleno la fecha de nacimiento "<dia>" "<mes>" "<anio>"
-    And     ingreso los datos de la dirección "<cia>" "<direccion>" "<ciudad>" "<estado>" "<cod_postal>"
-    And     ingreso mi "<cel>" "<ref>"
+    And     ingreso los datos de la dirección "<cia>" "<direccion1>" "<direccion2>" "<ciudad>" "<estado>" "<cod_postal>"
+    And     ingreso mi "<infoad>" "<tefcasa>" "<cel>" "<ref>"
     Then    doy click en registrar y verifico mensaje validador
 
       Examples:
-    |email                 |titulo  |nombres |apellidos  |clave|dia|mes|anio  |cia   |direccion              |ciudad |estado   |cod_postal|cel         |ref                     |
-    |tsoft09@tsoftlatam.com|Hombre  |Miguel  |Carranza   |12345|27 |7  |2000  |TSOFT |Dionisio derteano 168  |Lima   |Texas    |16513     |990444333   |al frente de la polleria|
+    |email                 |titulo  |nombres |apellidos  |clave|dia|mes|anio  |cia   |direccion1             |direccion2          | ciudad |estado  |cod_postal|infoad    |tefcasa  |cel         |ref                     |
+    |tsoft17@tsoftlatam.com|Hombre  |Miguel  |Carranza   |12345|27 |7  |2000  |TSOFT |Dionisio derteano 168  |Embarcadero 11      |Lima    |Texas   |16513     |casa verde|012987654|990444333   |al frente de la polleria|
